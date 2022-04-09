@@ -2,7 +2,7 @@ class Solution {
     
     public int getgold(int a[][],int r,int c,int visited[][])
     {
-        if(r>a.length-1|| r<0 || c<0 || c>a[0].length-1 || a[r][c]==0||visited[r][c]==1)
+        if(r==a.length || r<0 || c<0 || c== a[0].length || a[r][c]==0||visited[r][c]==1)
         {            
             return 0;
         }
@@ -27,7 +27,7 @@ class Solution {
             {
                 if(a[i][j]!=0)
                 {
-                    ans=Math.max(ans,getgold(a,i,j,visited));                                                        }
+                  ans=Math.max(ans,getgold(a,i,j,visited));                                                         }
             }
         }
          return ans;
