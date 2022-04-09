@@ -107,7 +107,6 @@ class GFG
 
 class Solution
 {
-    // public static ArrayList<Integer>p=new ArrayList<>();
     public static ArrayList<Node> nodetorootpath(Node node, int x)
     {
         if(node==null)
@@ -153,16 +152,17 @@ class Solution
     public static ArrayList<Integer> KDistanceNodes(Node node, int tar, int k)
     {
         ArrayList<Integer>p=new ArrayList<>();
+        
         ArrayList<Node>n2R=nodetorootpath(node,tar);
         
-       Node blocker = null;
+        Node blocker = null;
     
-      for(int i = 0; i<n2R.size(); i++){
+        for(int i = 0; i<n2R.size(); i++){
         Node n = n2R.get(i);
         printKLevelsDown(n, k-i, blocker,p);
         blocker = n;
     }
-      Collections.sort(p);
+       Collections.sort(p);
        return p;   
     }
 };
