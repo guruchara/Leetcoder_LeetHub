@@ -103,7 +103,7 @@ class GfG {
 
 class Tree {
     // Function to find the minimum element in the given BST.
-    int minn=Integer.MAX_VALUE;
+    // int minn=Integer.MAX_VALUE;
     int minValue(Node node) {
         
      if(node==null)
@@ -111,12 +111,23 @@ class Tree {
        return  -1;
      }
 
-      if(node.data<minn)           
-      {
-         minn=node.data;
-      }
+    //   if(node.data<minn)           
+    //   {
+    //      minn=node.data;
+    //   }
 
-      minValue(node.left);
-      return minn;
+    //   minValue(node.left);
+    //   return minn;
+    // }
+    
+    Node curr=node;
+    
+    while(curr.left!=null)
+    {
+        curr=curr.left;
     }
+    
+    return curr.data;
+    
+}
 }
