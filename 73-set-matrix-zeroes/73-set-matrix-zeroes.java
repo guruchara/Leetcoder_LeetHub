@@ -22,7 +22,8 @@ class Solution {
         }
         
         // we traverse according to row
-        int n=row.size();
+        // int n=row.size or col.size do mese kuchh bhi le sakte he 
+        int n=col.size();
         
         for(int i=0;i<n;i++)
         {
