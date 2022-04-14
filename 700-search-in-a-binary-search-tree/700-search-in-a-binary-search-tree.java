@@ -20,15 +20,17 @@ class Solution {
            return null;
         }        
         
-        if(val<node.val)
+        if(node.val==val)
+        {
+return node;
+        }
+        else if(val<node.val)
         {
             return searchBST(node.left,val);            
         }
-        
-        if(val>node.val)
+        // else if(val>node.val)
         {
            return searchBST(node.right,val);
-        }
-        return node;
+        }        
     }
 }
