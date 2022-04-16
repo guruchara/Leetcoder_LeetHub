@@ -13,21 +13,16 @@ class Solution {
         for(int i=0;i<second.length();i++)
         {
             sb1.append(second.charAt(i)-'a');
-        }
-        String x1=sb.toString();
-        String x2=sb1.toString();
+        }       
         
-        int x=Integer.parseInt(x1);
-        int y=Integer.parseInt(x2);
-        
-        int z=x+y;
-       
-        
+        int x=Integer.parseInt(sb.toString());
+        int y=Integer.parseInt(sb1.toString());
+                               
         for(int i=0;i<target.length();i++)
         {
             sb2.append(target.charAt(i)-'a');
         }
         int t=Integer.parseInt(sb2.toString());
-        return t==z;
+        return t==(x+y);
     }
 }
