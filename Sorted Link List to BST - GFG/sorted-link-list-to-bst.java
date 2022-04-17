@@ -156,30 +156,60 @@ class TNode
 // }
 class Solution
 {
-public LNode getMiddleOfLL(LNode head) {
-       if(head == null || head.next == null)
-           return head;
+// public LNode getMiddleOfLL(LNode head) {
+//       if(head == null || head.next == null)
+//           return head;
        
-       LNode slow = head, fast = head, prev = slow;
-       while(fast != null && fast.next != null) {
-           prev = slow;
-           slow = slow.next;
-           fast = fast.next.next;
-       }
-       prev.next = null;
-       return slow;
-   }
+//       LNode slow = head, fast = head, prev = slow;
+//       while(fast != null && fast.next != null) {
+//           prev = slow;
+//           slow = slow.next;
+//           fast = fast.next.next;
+//       }
+//       prev.next = null;
+//       return slow;
+//   }
 
-   public TNode sortedListToBST(LNode head) {
-       if(head == null || head.next == null)
-           return head != null ? new TNode(head.data) : null;
+//   public TNode sortedListToBST(LNode head) {
+//       if(head == null || head.next == null)
+//           return head != null ? new TNode(head.data) : null;
 
-       LNode midNode = getMiddleOfLL(head);
-       LNode nhead = midNode.next;
-       TNode root = new TNode(midNode.data);
+//       LNode midNode = getMiddleOfLL(head);
+//       LNode nhead = midNode.next;
+//       TNode root = new TNode(midNode.data);
 
-       root.left = sortedListToBST(head);
-       root.right = sortedListToBST(nhead);
-       return root;
-   }
+//       root.left = sortedListToBST(head);
+//       root.right = sortedListToBST(nhead);
+//       return root;
+//   }
+    public TNode check(LNode head,LNode tail)
+    {
+        
+        LNode slow=head;
+        LNode fast=head;
+        if(head==tail)
+        {
+            return null;
+        }
+        while(fast!=tail && fast.next!=tail)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        
+        TNode xhead=new TNode(slow.data);
+        
+        xhead.left=check(head,slow);
+        xhead.right=check(slow.next,tail);
+                         return xhead;
+    }
+    public TNode sortedListToBST(LNode head) 
+    {
+        if(head==null)
+        {
+            return null;
+        }
+        
+        return check(head,null);
+    }
 }
