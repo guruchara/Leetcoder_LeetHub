@@ -1,25 +1,29 @@
-class MyHashMap
-{
-    int[] map;
+class MyHashMap {
 
-    public MyHashMap()
-	{
-        map = new int[1000001];
-        Arrays.fill(map,-1);
-    }
-	
-    public int get(int key)
-	{
-        return map[key];
+    int a[];
+    public MyHashMap() {
+        a=new int[10000001];
+       
+        Arrays.fill(a,-1);
     }
     
-	public void put(int key, int value)
-	{
-        map[key] = value;
+    public void put(int key, int value) {
+        a[key]=value;
     }
     
-	public void remove(int key)
-	{
-        map[key] = -1;
+    public int get(int key) {
+        return a[key];
+    }
+    
+    public void remove(int key) {
+        a[key]=-1;
     }
 }
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * MyHashMap obj = new MyHashMap();
+ * obj.put(key,value);
+ * int param_2 = obj.get(key);
+ * obj.remove(key);
+ */
