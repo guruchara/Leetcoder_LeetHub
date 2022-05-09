@@ -1,6 +1,8 @@
 class Solution {
     public static String [] coder = {"","","abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv","wxyz"};
+    
     ArrayList<String>p=new ArrayList<String>();
+    
     public List<String> letterCombinations(String s) {           
         if(s.equals(""))
         {
@@ -20,6 +22,7 @@ class Solution {
               l.add("");
               return l;
           }
+            
         char ch=s.charAt(0);
         String x=s.substring(1);
         
@@ -36,7 +39,8 @@ class Solution {
             {
                 myAns.add(newchar+m);
             }
-        }               
+        }           
+            System.out.println(myAns.size());
          return myAns;        
     }
 }
