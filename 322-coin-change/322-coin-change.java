@@ -9,7 +9,7 @@ class Solution {
         return helper(coins,amount,new int[10000]);
     }
     
-    public int helper(int[] nums , int amount , int[] vis){
+    public static int helper(int[] nums , int amount , int[] vis){
     
         if(amount==0)
         { 
@@ -27,6 +27,7 @@ class Solution {
         for(int i=0;i<nums.length;i++){ 
             
              int count = helper(nums,amount-nums[i],vis);
+            
                if(count>=0){
                    min = Math.min(min,count+1);
                }
