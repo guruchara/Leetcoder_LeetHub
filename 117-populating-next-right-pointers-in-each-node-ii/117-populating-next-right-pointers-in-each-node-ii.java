@@ -21,31 +21,61 @@ class Node {
 };
 */
 
-class Solution {
-    public Node connect(Node root) {
-         if(root==null) return root;
+
+// class Solution {
+//     public Node connect(Node root) {
+//          if(root==null) return root;
     
-    Queue<Node> q = new LinkedList<>();
-    q.add(root);
+//     Queue<Node> q = new LinkedList<>();
+//     q.add(root);
     
-    while(!q.isEmpty()) {
-        int size = q.size(), i=0;
-        List<Node> list = new ArrayList<>();
+//     while(!q.isEmpty()) {
+//         int size = q.size(), i=0;
+//         List<Node> list = new ArrayList<>();
         
-        while(i < size) {
-            Node node = q.remove();
-            list.add(node);
-            if(i>0){
-                Node prev = list.get(i-1);
-                prev.next = node;
+//         while(i < size) {
+//             Node node = q.remove();
+//             list.add(node);
+//             if(i>0){
+//                 Node prev = list.get(i-1);
+//                 prev.next = node;
+//             }
+//             if(node.left!=null)
+//                 q.add(node.left);
+//             if(node.right!=null)
+//                 q.add(node.right);
+//             i++;
+//         }
+//     }
+//     return root;
+// }
+// }
+
+
+class Solution {
+    public void levelOrder(Node node){
+        Queue<Node> q = new ArrayDeque();
+        q.add(node);
+        while(q.size()>0){
+            int sz = q.size();
+            Node prev = null;
+            while(sz-- >0){
+                Node temp = q.remove();
+                if(prev!=null){
+                    prev.next = temp;
+                }
+                prev = temp;
+                if(temp.left!=null) q.add(temp.left);
+                if(temp.right!=null) q.add(temp.right);
+                prev.next = null;
             }
-            if(node.left!=null)
-                q.add(node.left);
-            if(node.right!=null)
-                q.add(node.right);
-            i++;
+            
         }
     }
-    return root;
-}
+    
+    public Node connect(Node root) {
+        if(root==null) return root;
+        levelOrder(root);
+        return root;
+    }
 }
