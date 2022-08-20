@@ -17,7 +17,7 @@ var findReplaceString = function(S, indexes, sources, targets) {
         chars[start] = target;
         
         for (let i = 1; i < source.length; i++) {
-            chars[start + i] = "";
+            chars[start + i] = '';
         }
     }
 };
